@@ -9,6 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // ----- Dark / light theme toggle (saved in localStorage) -----
+  const root = document.documentElement;
+  const themeToggle = document.getElementById("themeToggle");
+  const updateToggleLabel = (theme) => {
+    const label = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+    themeToggle.setAttribute("aria-label", label);
+    themeToggle.setAttribute("title", label);
+  };
+  updateToggleLabel(root.getAttribute("data-theme") || "dark");
+  themeToggle.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    updateToggleLabel(next);
+    try { localStorage.setItem("theme", next); } catch (e) { /* storage unavailable: theme still applies for this visit */ }
+  });
+
   // ----- Sticky nav background on scroll -----
   const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 20);
   onScroll();
