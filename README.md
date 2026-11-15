@@ -6,7 +6,10 @@ A simple, responsive one-page portfolio built with plain **HTML, CSS and JavaScr
 - **Header**: name, job title and call-to-action buttons
 - **About**: short bio with animated stats
 - **Skills**: skill cards grouped by category
+- **Projects**: three project cards with tags and links
 - **Contact**: email and social links, plus a validated contact form
+
+A button in the navigation bar switches between dark and light mode. The choice is saved in the browser's `localStorage`.
 
 ## Run it
 Open `index.html` in any modern browser. To serve it locally instead:
