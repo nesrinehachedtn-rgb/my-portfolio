@@ -5,6 +5,7 @@ A simple, responsive one-page portfolio built with plain **HTML, CSS and JavaScr
 ## Sections
 - **Header**: name, job title and call-to-action buttons
 - **About**: short bio with animated stats
+- **Experience**: timeline of roles and education
 - **Skills**: skill cards grouped by category
 - **Projects**: three project cards with tags and links
 - **Contact**: email and social links, plus a validated contact form

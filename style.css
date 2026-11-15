@@ -212,6 +212,17 @@ img, svg { display: block; }
 }
 .hero__title { font-size: clamp(1.15rem, 3vw, 1.6rem); font-weight: 600; color: var(--text); }
 .hero__tagline { color: var(--muted); max-width: 520px; margin: 1rem auto 2.25rem; }
+.hero__badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+.hero__badges li {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.3rem 0.85rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600;
+  color: var(--text); background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--hero-1) 35%, var(--border));
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  transition: transform 0.3s var(--ease), border-color 0.3s;
+}
+.hero__badges li:hover { transform: translateY(-2px); border-color: var(--hero-2); }
+.hero__badges svg { color: var(--hero-2); }
 .hero__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .hero .btn--primary {
   background: linear-gradient(135deg, var(--hero-1), var(--hero-2));
@@ -258,6 +269,46 @@ img, svg { display: block; }
   font-variant-numeric: tabular-nums;
 }
 .stat__label { display: block; color: var(--muted); font-size: 0.85rem; }
+
+/* ===== Experience timeline ===== */
+.timeline { position: relative; margin-top: 2.5rem; display: grid; gap: 1.5rem; padding-left: 2.25rem; }
+.timeline::before {
+  content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 2px; border-radius: 2px;
+  background: linear-gradient(180deg, var(--hero-1), var(--hero-2), var(--accent-1), transparent);
+}
+.timeline__item { position: relative; }
+.timeline__dot {
+  position: absolute; left: calc(-2.25rem + 2px); top: 1.6rem; width: 16px; height: 16px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--hero-1), var(--hero-2));
+  box-shadow: 0 0 0 4px var(--bg), 0 0 18px color-mix(in srgb, var(--hero-1) 60%, transparent);
+}
+.timeline__item--edu .timeline__dot { background: var(--gradient); box-shadow: 0 0 0 4px var(--bg), 0 0 18px color-mix(in srgb, var(--accent-1) 60%, transparent); }
+.timeline__card {
+  padding: 1.5rem 1.75rem; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--border);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s;
+}
+.timeline__card:hover {
+  transform: translateX(6px);
+  border-color: color-mix(in srgb, var(--hero-1) 35%, transparent);
+  box-shadow: 0 20px 45px -25px color-mix(in srgb, var(--hero-1) 55%, transparent);
+}
+.timeline__head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.timeline__head h3 { font-size: 1.25rem; }
+.timeline__meta { color: var(--muted); font-size: 0.85rem; }
+.timeline__roles { list-style: none; display: grid; gap: 0.5rem; }
+.timeline__roles li { display: flex; justify-content: space-between; gap: 0.25rem 1rem; flex-wrap: wrap; }
+.timeline__roles strong { font-weight: 600; }
+.timeline__roles span {
+  font-size: 0.82rem; font-weight: 600; white-space: nowrap;
+  color: color-mix(in srgb, var(--hero-2) 75%, var(--tag-mix));
+}
+.timeline__points { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); display: grid; gap: 0.45rem; }
+.timeline__points li { position: relative; padding-left: 1.1rem; color: var(--muted); font-size: 0.95rem; }
+.timeline__points li::before {
+  content: ""; position: absolute; left: 0; top: 0.65em; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--hero-1);
+}
 
 /* ===== Skills ===== */
 .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
@@ -447,6 +498,11 @@ img, svg { display: block; }
   }
   .nav.is-open { background: var(--menu-bg); }
   .project-card__banner { height: 120px; }
+  .timeline { padding-left: 1.75rem; }
+  .timeline__dot { left: calc(-1.75rem + 2px); }
+  .timeline__card { padding: 1.25rem; }
+  .timeline__card:hover { transform: none; }
+  .timeline__roles span { white-space: normal; }
   .nav.is-open .nav__links { opacity: 1; transform: none; pointer-events: auto; }
   .nav__links a { display: block; padding: 0.9rem 0.5rem; }
   .nav__links a::after { display: none; }
