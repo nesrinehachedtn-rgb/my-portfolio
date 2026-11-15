@@ -1,5 +1,5 @@
 // ===== Config: put your real email here so the contact form reaches you =====
-const CONTACT_EMAIL = "you@example.com";
+const CONTACT_EMAIL = "nesrine.hached.tn@gmail.com";
 
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.getElementById("nav");
